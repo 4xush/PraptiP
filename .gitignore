@@ -80,3 +80,7 @@ memory/test_credentials.md
 
 # Mobile development
 android-sdk/
+# Local env files (never commit secrets)
+.env
+backend/.env
+frontend/.env

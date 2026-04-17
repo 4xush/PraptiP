@@ -2,9 +2,9 @@ services:
   - type: web
     name: whiteboard-agent-backend
     runtime: python
-    rootDir: backend
-    buildCommand: pip install -r requirements-app.txt
-    startCommand: uvicorn server:app --host 0.0.0.0 --port $PORT
+    # Repo root: install deps then run uvicorn from backend/ so `server` imports
+    buildCommand: pip install -r backend/requirements-app.txt
+    startCommand: cd backend && uvicorn server:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: MONGO_URL
         sync: false
